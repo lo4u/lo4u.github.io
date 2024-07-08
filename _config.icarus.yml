@@ -232,13 +232,13 @@ widgets:
         # Author name
         author: 摘星
         # Author title
-        author_title: Your title
+        author_title: 写点东西
         # Author's current location
-        location: Your location
+        location: 江苏
         # URL or path to the avatar image
         avatar: /img/哈哈.svg
         # Whether show the rounded avatar image
-        avatar_rounded: true
+        avatar_rounded: false
         # Email address for the Gravatar
         gravatar: u1h.lo4u@gmail.com
         # URL or path for the follow button
