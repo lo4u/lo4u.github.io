@@ -7,7 +7,7 @@ logo: /img/鲸鱼蓝蓝.svg
 # Page metadata configurations
 head:
     # URL or path to the website's icon
-    favicon: /img/千珏.jpg
+    favicon: /img/鲸鱼蓝蓝.jpg
     # Web application manifests configuration
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest:
@@ -24,7 +24,7 @@ head:
         # before its stylesheet is loaded
         background_color: 
         # The preferred display mode for the website
-        display: standalone
+        display: 
         # Image files that can serve as application icons for different contexts
         icons:
             -
@@ -112,24 +112,24 @@ navbar:
         关于: /about
     # Links to be shown on the right of the navigation bar
     links:
-        Download on GitHub:
+        visit Github:
             icon: fab fa-github
-            url: https://github.com/ppoffice/hexo-theme-icarus
+            url: https://github.com/lo4u/lo4u.github.io/tree/source
 # Page footer configurations
 footer:
     # Copyright text
-    copyright: © 2019
+    copyright: © 2024
     # Links to be shown on the right of the footer section
     links:
-        Creative Commons:
-            icon: fab fa-creative-commons
-            url: https://creativecommons.org/
-        Attribution 4.0 International:
-            icon: fab fa-creative-commons-by
-            url: https://creativecommons.org/licenses/by/4.0/
-        Download on GitHub:
+        # Creative Commons:
+        #     icon: fab fa-creative-commons
+        #     url: https://creativecommons.org/
+        # Attribution 4.0 International:
+        #     icon: fab fa-creative-commons-by
+        #     url: https://creativecommons.org/licenses/by/4.0/
+        visit Github:
             icon: fab fa-github
-            url: https://github.com/ppoffice/hexo-theme-icarus
+            url: https://github.com/lo4u/lo4u.github.io/tree/source
 # Article related configurations
 article:
     # Code highlight settings
@@ -146,16 +146,17 @@ article:
     # Whether to show updated time. For "auto", shows article update time only when page.updated is set and it is different from page.date
     update_time: true
     # Article licensing block
-    licenses:
-        Creative Commons:
-            icon: fab fa-creative-commons
-            url: https://creativecommons.org/
-        Attribution:
-            icon: fab fa-creative-commons-by
-            url: https://creativecommons.org/licenses/by/4.0/
-        Noncommercial:
-            icon: fab fa-creative-commons-nc
-            url: https://creativecommons.org/licenses/by-nc/4.0/
+    # 下面被我注释了
+    # licenses:
+    #     Creative Commons:
+    #         icon: fab fa-creative-commons
+    #         url: https://creativecommons.org/
+    #     Attribution:
+    #         icon: fab fa-creative-commons-by
+    #         url: https://creativecommons.org/licenses/by/4.0/
+    #     Noncommercial:
+    #         icon: fab fa-creative-commons-nc
+    #         url: https://creativecommons.org/licenses/by-nc/4.0/
 # Search plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Search/
 search:
@@ -229,30 +230,30 @@ widgets:
         position: left
         type: profile
         # Author name
-        author: Your name
+        author: 摘星
         # Author title
         author_title: Your title
         # Author's current location
         location: Your location
         # URL or path to the avatar image
-        avatar: 
+        avatar: /img/哈哈.svg
         # Whether show the rounded avatar image
-        avatar_rounded: false
+        avatar_rounded: true
         # Email address for the Gravatar
-        gravatar: 
+        gravatar: u1h.lo4u@gmail.com
         # URL or path for the follow button
-        follow_link: https://github.com/ppoffice
+        follow_link: https://github.com/lo4u
         # Links to be shown on the bottom of the profile widget
         social_links:
             Github:
                 icon: fab fa-github
-                url: https://github.com/ppoffice
-            Facebook:
-                icon: fab fa-facebook
-                url: https://facebook.com
-            Twitter:
-                icon: fab fa-twitter
-                url: https://twitter.com
+                url: https://github.com/lo4u
+            YuQue:
+                icon: /img/yuque.svg
+                url: https://www.yuque.com/dianmoliubai-nbr0z
+            Bilibili:
+                icon: /img/bilibili.svg
+                url: https://space.bilibili.com/294910890
             Dribbble:
                 icon: fab fa-dribbble
                 url: https://dribbble.com
