@@ -3,11 +3,11 @@ version: 5.1.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 # Path or URL to the website's logo
-logo: /img/鲸鱼蓝蓝.svg
+logo: 拂尘崖
 # Page metadata configurations
 head:
     # URL or path to the website's icon
-    favicon: /img/鲸鱼蓝蓝.jpg
+    favicon: /img/鲸鱼蓝蓝.svg
     # Web application manifests configuration
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest:
@@ -24,7 +24,7 @@ head:
         # before its stylesheet is loaded
         background_color: 
         # The preferred display mode for the website
-        display: 
+        display: standalone
         # Image files that can serve as application icons for different contexts
         icons:
             -
@@ -109,12 +109,12 @@ navbar:
         归档: /archives
         分类: /categories
         标签: /tags
-        关于: /about
+        关于我: /about
     # Links to be shown on the right of the navigation bar
     links:
-        visit Github:
-            icon: fab fa-github
-            url: https://github.com/lo4u/lo4u.github.io/tree/source
+        # Download on GitHub:
+        #     icon: fab fa-github
+        #     url: https://github.com/ppoffice/hexo-theme-icarus
 # Page footer configurations
 footer:
     # Copyright text
@@ -127,9 +127,9 @@ footer:
         # Attribution 4.0 International:
         #     icon: fab fa-creative-commons-by
         #     url: https://creativecommons.org/licenses/by/4.0/
-        visit Github:
-            icon: fab fa-github
-            url: https://github.com/lo4u/lo4u.github.io/tree/source
+        # Download on GitHub:
+        #     icon: fab fa-github
+        #     url: https://github.com/ppoffice/hexo-theme-icarus
 # Article related configurations
 article:
     # Code highlight settings
@@ -146,17 +146,16 @@ article:
     # Whether to show updated time. For "auto", shows article update time only when page.updated is set and it is different from page.date
     update_time: true
     # Article licensing block
-    # 下面被我注释了
-    # licenses:
-    #     Creative Commons:
-    #         icon: fab fa-creative-commons
-    #         url: https://creativecommons.org/
-    #     Attribution:
-    #         icon: fab fa-creative-commons-by
-    #         url: https://creativecommons.org/licenses/by/4.0/
-    #     Noncommercial:
-    #         icon: fab fa-creative-commons-nc
-    #         url: https://creativecommons.org/licenses/by-nc/4.0/
+    licenses:
+        Creative Commons:
+            icon: fab fa-creative-commons
+            url: https://creativecommons.org/
+        Attribution:
+            icon: fab fa-creative-commons-by
+            url: https://creativecommons.org/licenses/by/4.0/
+        Noncommercial:
+            icon: fab fa-creative-commons-nc
+            url: https://creativecommons.org/licenses/by-nc/4.0/
 # Search plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Search/
 search:
@@ -232,34 +231,34 @@ widgets:
         # Author name
         author: 摘星
         # Author title
-        author_title: 写点东西
+        author_title: 分享我的知识
         # Author's current location
-        location: 江苏
+        # location: 江苏
         # URL or path to the avatar image
-        avatar: /img/哈哈.svg
+        avatar: /img/鲸鱼蓝蓝.svg
         # Whether show the rounded avatar image
-        avatar_rounded: false
+        avatar_rounded: true
         # Email address for the Gravatar
-        gravatar: u1h.lo4u@gmail.com
+        gravatar: 
         # URL or path for the follow button
-        follow_link: https://github.com/lo4u
+        follow_link: https://github.com/ppoffice
         # Links to be shown on the bottom of the profile widget
         social_links:
             Github:
                 icon: fab fa-github
-                url: https://github.com/lo4u
+                url: https://github.com/ppoffice
             YuQue:
-                icon: /img/yuque.svg
+                icon: /img/语雀.svg
                 url: https://www.yuque.com/dianmoliubai-nbr0z
-            Bilibili:
-                icon: /img/bilibili.svg
+            bilibili:
+                icon: fab fa-qq
                 url: https://space.bilibili.com/294910890
-            Dribbble:
-                icon: fab fa-dribbble
-                url: https://dribbble.com
-            RSS:
-                icon: fas fa-rss
-                url: /
+            # Dribbble(施工中):
+            #     icon: fab fa-dribbble
+            #     url: https://dribbble.com
+            # RSS(施工中):
+            #     icon: fas fa-rss
+            #     url: /
     # Table of contents widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
@@ -272,14 +271,14 @@ widgets:
         # Maximum level of headings to show (1-6)
         depth: 3
     # Recommendation links widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: links
-        # Names and URLs of the sites
-        links:
-            Hexo: https://hexo.io
-            Bulma: https://bulma.io
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: left
+    #     type: links
+    #     # Names and URLs of the sites
+    #     links:
+    #         Hexo: https://hexo.io
+    #         Bulma: https://bulma.io
     # Categories widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
@@ -291,10 +290,10 @@ widgets:
         position: left
         type: recent_posts
     # Archives widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: archives
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: left
+    #     type: archives
     # Tags widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
@@ -315,26 +314,26 @@ widgets:
         description: 
         # Feedburner ID
         feedburner_id: ''
-    # Google AdSense unit configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: adsense
-        # AdSense client ID
-        client_id: ''
-        # AdSense AD unit ID
-        slot_id: ''
+    # Google AdSense unit configurations 广告
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: left
+    #     type: adsense
+    #     # AdSense client ID
+    #     client_id: ''
+    #     # AdSense AD unit ID
+    #     slot_id: ''
     # Follow.it email subscription widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: followit
-        # Hint text under the email input
-        description: 
-        # Subscription form action URL
-        action_url: ''
-        # Feed claiming verification code
-        verification_code: ''
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: left
+    #     type: followit
+    #     # Hint text under the email input
+    #     description: 
+    #     # Subscription form action URL
+    #     action_url: ''
+    #     # Feed claiming verification code
+    #     verification_code: ''
 # Plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/
 plugins:
@@ -396,6 +395,8 @@ plugins:
     # Enable the Outdated Browser plugin
     # http://outdatedbrowser.com/
     outdated_browser: false
+    # Enable PJAX
+    pjax: true
     # Show a progress bar at top of the page on page loading
     progressbar: true
     # Statcounter statistics
