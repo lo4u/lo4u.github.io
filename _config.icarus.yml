@@ -3,7 +3,7 @@ version: 5.1.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 # Path or URL to the website's logo
-logo: 拂尘崖
+logo: /img/鲸鱼蓝蓝.svg
 # Page metadata configurations
 head:
     # URL or path to the website's icon
@@ -241,12 +241,12 @@ widgets:
         # Email address for the Gravatar
         gravatar: 
         # URL or path for the follow button
-        follow_link: https://github.com/ppoffice
+        follow_link: https://github.com/lo4u
         # Links to be shown on the bottom of the profile widget
         social_links:
             Github:
                 icon: fab fa-github
-                url: https://github.com/ppoffice
+                url: https://github.com/lo4u
             YuQue:
                 icon: /img/语雀.svg
                 url: https://www.yuque.com/dianmoliubai-nbr0z
