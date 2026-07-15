@@ -1,0 +1,133 @@
+baseURL = 'https://lo4u.github.io'
+languageCode = 'zh-cn'
+title = '摘星'
+theme = 'stack'
+
+defaultContentLanguage = 'zh-cn'
+
+
+# 站点全局设置
+[Params]
+  # 站点描述，若未设置则回退到 .Params.Sidebar.Subtitle
+  description = "description" 
+  
+  # 显示在主页和归档页面的章节，默认值为 ["post"]
+  mainSections = ["post"] 
+  
+  # 用于获取页面特色图片的 Front Matter 字段，默认值为 "image"
+  featuredImageField = "image" 
+  
+  # 是否在 RSS 中输出页面全文，默认值为 true
+  rssFullContent = true 
+  
+  # 站点 favicon 路径，例如 "/favicon.ico"
+  favicon = "img/bilibili.png" 
+
+# 日期格式设置
+[Params.DateFormat]
+  # 页面发布日期格式，默认值为 "Jan 02, 2006"
+  published = "2006-01-02" 
+  
+  # 页面最后更新日期格式，默认值为 "Jan 02, 2006 15:04 MST"
+  lastUpdated = "2006-01-02 15:04" 
+
+# 侧边栏设置
+[Params.Sidebar]
+  # 是否启用侧边栏紧凑版本，默认值为 false
+  compact = false 
+
+  # 站点标题旁的表情符号
+  # 😂 😭 ✨ ❤️ 🔥 💀 🫠 🫡 🤣 😊 🥰 😍 🤩 🥳 🤔 🤨 🙄 🙃 🤡 ❌ 💡 🚀  🌟 🌊 🍃 ☕ 🍺 🎁 👉 👇 💯 🍥
+  emoji = "✨"
+
+  # 站点标题下方的副标题
+  subtitle = "这里是还没想好写什么的副标题" 
+
+[Params.Sidebar.avatar]
+    # 是否启用头像，默认值为 true
+    enabled = true 
+    
+    # 头像图片路径，默认值为 "img/avatar.png"
+    src = "img/bilibili.png" 
+    
+    # 若为 true，头像需放在 assets/ 下以支持自动调整大小，默认值为 true
+    local = true 
+
+# 页脚设置
+[Params.Footer]
+  # 站点创建的年份
+  since = 2024
+  
+  # 页脚显示的自定义文本，支持 HTML
+  customText = "这里是还没想好写什么的页脚"
+
+# 文章页面设置
+[Params.Article]
+  # 是否启用标题旁的 # 锚点链接（仅悬停可见），默认值为 false
+  headingAnchor = true 
+  
+  # 是否通过 KaTeX 启用数学公式支持
+  math = true 
+  
+  # 是否默认启用文章目录（需配合 toc 小部件使用）
+  toc = true 
+  
+  # 是否显示预计阅读时间，默认值为 true
+  readingTime = false 
+
+[Params.Article.license]
+  # 是否在文章下方显示许可证信息，默认值为 false
+  enabled = true 
+    
+  # 默认许可证文本
+  default = "Licensed under CC BY-NC-SA 4.0" 
+
+# [Params.Comments] 评论系统设置
+[Params.Comments]
+  # 是否启用评论系统，默认值为 false
+  enabled = false 
+  
+  # 评论提供商（如 giscus, waline, disqus 等）
+  provider = "" 
+
+# [Params.colorScheme] 配色方案设置
+[Params.colorScheme]
+  # 是否显示配色切换按钮，默认值为 true
+  toggle = true 
+  
+  # 默认配色方案：light, dark 或 auto（跟随系统），默认值为 "auto"
+  default = "auto" 
+
+# 侧边栏小部件配置
+[Params.widgets]
+  # 主页显示的小部件及顺序（需预先创建对应 layout 的页面）
+  homepage = [
+    { type = "search", params = {} },
+    { type = "archives", params = { limit = 10 } },
+    { type = "categories", params = { limit = 10 } },
+    { type = "tag-cloud", params = { limit = 10 } }
+  ]
+  # 文章页显示的小部件
+  page = [
+    { type = "toc", params = {} }
+  ]
+
+# [Params.opengraph] 社交协议设置
+[Params.opengraph]
+  [Params.opengraph.twitter]
+    # 站点的 Twitter 账号名称（不带 @）
+    site = "" 
+    
+    # Twitter 卡片类型：summary 或 summary_large_image
+    card = "summary" 
+
+# [Params.defaultImage] 默认预览图设置
+[Params.defaultImage.opengraph]
+    # 是否启用默认的 Open Graph 和 Twitter 预览图
+    enabled = false 
+    
+    # 预览图片路径
+    src = "" 
+    
+    # 若为 true，图片必须放在 assets/ 文件夹下
+    local = false
