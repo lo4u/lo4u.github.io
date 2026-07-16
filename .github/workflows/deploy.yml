@@ -5,6 +5,11 @@ on:
   push:
     branches: [ main ]
 
+# 新增权限声明，授予写入仓库分支权限
+permissions:
+  contents: write
+  pages: write
+  
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
