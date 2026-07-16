@@ -1,0 +1,37 @@
+name: Build Hugo & Deploy to source branch
+
+# 触发条件：main 分支推送代码时自动运行
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 拉取仓库全部代码
+      - name: Checkout source code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2. 安装 Hugo 扩展版（支持图片/Scss）
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: latest
+          extended: true
+
+      # 3. 构建静态站点，生成 public 文件夹
+      - name: Build site
+        run: hugo --minify
+
+      # 4. 将 public 目录发布到 source 分支
+      - name: Deploy to source branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: source
+          # 可选：强制清空分支旧文件，避免残留
+          force_orphan: true
