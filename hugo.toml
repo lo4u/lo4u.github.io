@@ -131,3 +131,10 @@ defaultContentLanguage = 'zh-cn'
     
     # 若为 true，图片必须放在 assets/ 文件夹下
     local = false
+
+# 公式渲染设置
+[markup.goldmark.extensions.passthrough]
+    enable = true
+[markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)'], ['$', '$']]
