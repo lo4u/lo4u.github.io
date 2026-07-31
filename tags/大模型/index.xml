@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>大模型 on 摘星</title><link>https://lo4u.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link><description>Recent content in 大模型 on 摘星</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 29 Jul 2026 18:19:15 +0800</lastBuildDate><atom:link href="https://lo4u.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>阅读笔记 of 《Private embedding lookup with encrypted compact queries under fully homomorphic encryption》</title><link>https://lo4u.github.io/post/privateembeddinglookup/</link><pubDate>Wed, 29 Jul 2026 18:19:15 +0800</pubDate><guid>https://lo4u.github.io/post/privateembeddinglookup/</guid><description>&lt;p&gt;本文研究的是 &lt;strong&gt;Private Embedding Lookup（PEL，私有嵌入查询）&lt;/strong&gt; 问题，即在大模型的训练或推理任务中完成 embedding layer 的查询，同时隐藏用户输入的离散索引。对于 NLP 和推荐系统等模型，输入通常是一个 token 或 item 的编号 $j$，模型首先需要从服务器保存的 embedding table $M$ 中取出对应的嵌入向量 $M_j$。在明文环境下，简单的表查找操作即可完成；然而在隐私保护要求下，服务器不可直接利用索引访问目标元素，无法直接寻址。一种可行方法是将查表操作转化为同态计算。论文关注的正是在&lt;strong&gt;服务器保存 embedding table、客户端仅发送一个加密索引&lt;/strong&gt;这一场景下，如何高效地完成私有嵌入查询。
+从形式上看，PEL 与单服务器 PIR 较为相似：服务器都保存一个大型数据库，客户端都希望在隐藏查询索引的情况下获取目标数据。二者的主要区别在于，PIR 的输出是最终返回给客户端的数据记录，客户端解密后协议即结束，因此可以采用各种编码、压缩或查询后处理技术来优化通信和计算。而 PEL 的输出并不是最终结果，而是推理流水线中的中间密文，得到的 embedding 密文还需要直接作为后续同态神经网络层的输入。如果客户端需要中途解密 embedding，再重新加密发送给服务器，就会中断整个推理流程。因此，PEL 更关注生成一种能够直接贯通后续同态计算的密文表示，而不仅仅是完成一次私有数据检索。本文强调，PEL 虽然与 PIR 在形式上相近，但由于输出用途不同，其设计目标和优化方向并不相同。（但是这里可以看出一些方法应该是能迁移的）
+针对这一问题，此前最先进的方法采用 &lt;strong&gt;one-hot 表示&lt;/strong&gt;完成查找。客户端发送加密索引，服务器通过等值算子密态计算对应的 one-hot 向量 $e_j$，再计算 $Me_j=M_j$。然而，生成 one-hot 向量需要对每个位置分别执行一次同态相等性测试，其总体计算复杂度达到 $O(p\log p)$，成为PEL流程中最主要的性能瓶颈，开销甚至高于后续矩阵乘法。
+本文的核心思想是指出：&lt;strong&gt;服务器真正需要的并不是 one-hot 向量，而只是能够唯一表示索引的一组线性无关向量。&lt;/strong&gt; 设每个索引对应一个线性无关向量 $v_j$，则一定存在一个基变换矩阵 $L$，使得 $Lv_j=e_j$。因此，原本的查找过程
+&lt;/p&gt;
+$$ 
+M_j=Me_j 
+$$&lt;p&gt;
+可以改写为
+&lt;/p&gt;
+$$ 
+M_j=(ML)v_j, 
+$$&lt;p&gt;
+其中矩阵 $ML$ 完全由明文组成，可以在离线阶段一次性预计算。这样，在线阶段服务器只需根据加密索引生成对应的 $v_j$，再与预处理后的矩阵相乘即可，整个过程中无需再构造 one-hot 向量。论文将这一思想称为 &lt;strong&gt;Independent Vector Evaluation（IVE）&lt;/strong&gt;，其本质是将标准基（one-hot向量）转换到另一组可以由单个标量生成的基上完成。
+为快速生成$v_j$，必须选择特殊的矩阵$V$，使得$LV=E,\text{即}(Lv_j=e_j)$，其中$v_j$为$V$的第$j$列。本文选取的矩阵为变换后的DCT矩阵：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="（行变换的）DCT矩阵" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="DCT.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;这使得每一列可以被一个标量 $\alpha$ 以及变换 $\mathrm{v}$ 快速生成，即：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="由标量生成列向量" class="gallery-image" data-flex-basis="684px" data-flex-grow="285" height="178" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://lo4u.github.io/post/privateembeddinglookup/%E5%8F%98%E6%8D%A2.png" width="508"&gt;&lt;/p&gt;
+&lt;p&gt;该变换的正确性可以查阅原文附录。矩阵$D$同时还是正交矩阵（向量正交且模长为1），证明也请参见原文附录。文章同时考虑了采用CKKS加密方案时存在的误差问题并进行了分析。
+我们重点考察上面的矩阵为何可以从一个标量生成。事实上，能从一个标量生成的关键是生成算法与列索引无关。例如我们最熟知的范德蒙德矩阵：
+&lt;/p&gt;
+$$
+\begin{pmatrix} 1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 \\ x_1 &amp; x_2 &amp; x_3 &amp; \dots &amp; x_n \\ x_1^2 &amp; x_2^2 &amp; x_3^2 &amp; \dots &amp; x_n^2 \\ \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ x_1^{n-1} &amp; x_2^{n-1} &amp; x_3^{n-1} &amp; \dots &amp; x_n^{n-1} \end{pmatrix}
+$$&lt;p&gt;
+无论对于哪一列，都可以通过幂运算生成。对于采用LWE加密方案的场景，我们只能采用数乘与加法，假设第$j$列对应的标量元素是$x_j$，则这一列的每一个位置上的元素都可以写作$ax_j+b$，且对于同一行的每个位置，使用的系数$a$与偏置$b$都相同。从而可以将任意行向量写作下面的形式：
+&lt;/p&gt;
+$$
+(ax_1+b, ax_2+b,\cdots,ax_n+b) = a(x_1, x_2, \cdots, x_n) + b(1,1,\cdots,1)
+$$&lt;p&gt;
+显然最多只能得到两个线性无关的向量，因此，采用LWE仅有的数乘与加法运算，似乎不可能从一个标量生成一个$n$位的列向量，使得所有$n$个列向量组成的矩阵可逆。由上述结果可知，至少应发送$n-1$个标量，这个结果相比原本的方法几乎没有优化。&lt;/p&gt;</description></item></channel></rss>
