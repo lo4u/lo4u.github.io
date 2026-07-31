@@ -9,7 +9,7 @@ categories: ["技术文章"]
 tags: ["技术", "算法", "数学", "多项式", "线性代数"]
 hidden: false
 comments: true
-draft: true
+draft: false
 ---
 # 从傅里叶级数开始
 我们知道借助**级数理论**可以无限逼近任何一个函数。经典的级数形式，莫过于我们熟悉的幂级数、泰勒级数、傅里叶级数。

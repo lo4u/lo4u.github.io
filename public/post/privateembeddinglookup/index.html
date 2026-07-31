@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文研究的是 Private Embedding Lookup（PEL，私有嵌入查询） 问题，即在大模型的训练或推理任务中完成 embedding layer 的查询，同时隐藏用户输入的离散索引。对于 NLP 和推荐系统等模型，输入通常是一个 token 或 item 的编号 $j$，模型首先需要从服务器保存的 embedding table $M$ 中取出对应的嵌入向量 $M_j$。在明文环境下，简单的表查找操作即可完成；然而在隐私保护要求下，服务器不可直接利用索引访问目标元素，无法直接寻址。一种可行方法是将查表操作转化为同态计算。论文关注的正是在服务器保存 embedding table、客户端仅发送一个加密索引这一场景下，如何高效地完成私有嵌入查询。 从形式上看，PEL 与单服务器 PIR 较为相似：服务器都保存一个大型数据库，客户端都希望在隐藏查询索引的情况下获取目标数据。二者的主要区别在于，PIR 的输出是最终返回给客户端的数据记录，客户端解密后协议即结束，因此可以采用各种编码、压缩或查询后处理技术来优化通信和计算。而 PEL 的输出并不是最终结果，而是推理流水线中的中间密文，得到的 embedding 密文还需要直接作为后续同态神经网络层的输入。如果客户端需要中途解密 embedding，再重新加密发送给服务器，就会中断整个推理流程。因此，PEL 更关注生成一种能够直接贯通后续同态计算的密文表示，而不仅仅是完成一次私有数据检索。本文强调，PEL 虽然与 PIR 在形式上相近，但由于输出用途不同，其设计目标和优化方向并不相同。（但是这里可以看出一些方法应该是能迁移的） 针对这一问题，此前最先进的方法采用 one-hot 表示完成查找。客户端发送加密索引，服务器通过等值算子密态计算对应的 one-hot 向量 $e_j$，再计算 $Me_j=M_j$。然而，生成 one-hot 向量需要对每个位置分别执行一次同态相等性测试，其总体计算复杂度达到 $O(p\\log p)$，成为PEL流程中最主要的性能瓶颈，开销甚至高于后续矩阵乘法。 本文的核心思想是指出：服务器真正需要的并不是 one-hot 向量，而只是能够唯一表示索引的一组线性无关向量。 设每个索引对应一个线性无关向量 $v_j$，则一定存在一个基变换矩阵 $L$，使得 $Lv_j=e_j$。因此，原本的查找过程 $$ M_j=Me_j $$ 可以改写为 $$ M_j=(ML)v_j, $$ 其中矩阵 $ML$ 完全由明文组成，可以在离线阶段一次性预计算。这样，在线阶段服务器只需根据加密索引生成对应的 $v_j$，再与预处理后的矩阵相乘即可，整个过程中无需再构造 one-hot 向量。论文将这一思想称为 Independent Vector Evaluation（IVE），其本质是将标准基（one-hot向量）转换到另一组可以由单个标量生成的基上完成。 为快速生成$v_j$，必须选择特殊的矩阵$V$，使得$LV=E,\\text{即}(Lv_j=e_j)$，其中$v_j$为$V$的第$j$列。本文选取的矩阵为变换后的DCT矩阵：\n">
 <title>阅读笔记 of 《Private embedding lookup with encrypted compact queries under fully homomorphic encryption》</title>
 
 
-<link rel="canonical" href="http://localhost:1313/post/privateembeddinglookup/">
+<link rel="canonical" href="https://lo4u.github.io/post/privateembeddinglookup/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="/scss/style.min.6c5de2beb0135a607c906dad79e345b1cdaeaa903c08ecd15bf339410a734b5e.css"><meta property='og:title' content="阅读笔记 of 《Private embedding lookup with encrypted compact queries under fully homomorphic encryption》">
 <meta property='og:description' content="本文研究的是 Private Embedding Lookup（PEL，私有嵌入查询） 问题，即在大模型的训练或推理任务中完成 embedding layer 的查询，同时隐藏用户输入的离散索引。对于 NLP 和推荐系统等模型，输入通常是一个 token 或 item 的编号 $j$，模型首先需要从服务器保存的 embedding table $M$ 中取出对应的嵌入向量 $M_j$。在明文环境下，简单的表查找操作即可完成；然而在隐私保护要求下，服务器不可直接利用索引访问目标元素，无法直接寻址。一种可行方法是将查表操作转化为同态计算。论文关注的正是在服务器保存 embedding table、客户端仅发送一个加密索引这一场景下，如何高效地完成私有嵌入查询。 从形式上看，PEL 与单服务器 PIR 较为相似：服务器都保存一个大型数据库，客户端都希望在隐藏查询索引的情况下获取目标数据。二者的主要区别在于，PIR 的输出是最终返回给客户端的数据记录，客户端解密后协议即结束，因此可以采用各种编码、压缩或查询后处理技术来优化通信和计算。而 PEL 的输出并不是最终结果，而是推理流水线中的中间密文，得到的 embedding 密文还需要直接作为后续同态神经网络层的输入。如果客户端需要中途解密 embedding，再重新加密发送给服务器，就会中断整个推理流程。因此，PEL 更关注生成一种能够直接贯通后续同态计算的密文表示，而不仅仅是完成一次私有数据检索。本文强调，PEL 虽然与 PIR 在形式上相近，但由于输出用途不同，其设计目标和优化方向并不相同。（但是这里可以看出一些方法应该是能迁移的） 针对这一问题，此前最先进的方法采用 one-hot 表示完成查找。客户端发送加密索引，服务器通过等值算子密态计算对应的 one-hot 向量 $e_j$，再计算 $Me_j=M_j$。然而，生成 one-hot 向量需要对每个位置分别执行一次同态相等性测试，其总体计算复杂度达到 $O(p\\log p)$，成为PEL流程中最主要的性能瓶颈，开销甚至高于后续矩阵乘法。 本文的核心思想是指出：服务器真正需要的并不是 one-hot 向量，而只是能够唯一表示索引的一组线性无关向量。 设每个索引对应一个线性无关向量 $v_j$，则一定存在一个基变换矩阵 $L$，使得 $Lv_j=e_j$。因此，原本的查找过程 $$ M_j=Me_j $$ 可以改写为 $$ M_j=(ML)v_j, $$ 其中矩阵 $ML$ 完全由明文组成，可以在离线阶段一次性预计算。这样，在线阶段服务器只需根据加密索引生成对应的 $v_j$，再与预处理后的矩阵相乘即可，整个过程中无需再构造 one-hot 向量。论文将这一思想称为 Independent Vector Evaluation（IVE），其本质是将标准基（one-hot向量）转换到另一组可以由单个标量生成的基上完成。 为快速生成$v_j$，必须选择特殊的矩阵$V$，使得$LV=E,\\text{即}(Lv_j=e_j)$，其中$v_j$为$V$的第$j$列。本文选取的矩阵为变换后的DCT矩阵：\n">
-<meta property='og:url' content='http://localhost:1313/post/privateembeddinglookup/'>
+<meta property='og:url' content='https://lo4u.github.io/post/privateembeddinglookup/'>
 <meta property='og:site_name' content='摘星'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='技术' /><meta property='article:tag' content='PEL' /><meta property='article:tag' content='隐私' /><meta property='article:tag' content='大模型' /><meta property='article:published_time' content='2026-07-29T18:19:15&#43;08:00'/><meta property='article:modified_time' content='2026-07-29T18:19:15&#43;08:00'/>
 <meta name="twitter:title" content="阅读笔记 of 《Private embedding lookup with encrypted compact queries under fully homomorphic encryption》">
@@ -456,7 +456,7 @@ $$<p>
             </main>
         </div>
         
-<script type="text/javascript" src="/ts/main.c0a72a88295c5c8d3ae089d49cd0cf564a652d9638ec0d16d57193d6d8d846e9.js" defer></script>
+<script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
 
 
     </body>

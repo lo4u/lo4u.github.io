@@ -5,7 +5,55 @@
         <description>Recent content in Tags on 摘星</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 21 Jul 2026 15:37:34 +0800</lastBuildDate><atom:link href="https://lo4u.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 29 Jul 2026 18:55:01 +0800</lastBuildDate><atom:link href="https://lo4u.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>多项式</title>
+            <link>https://lo4u.github.io/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/</link>
+            <pubDate>Wed, 29 Jul 2026 18:55:01 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/</guid>
+            <description></description>
+        </item><item>
+            <title>技术</title>
+            <link>https://lo4u.github.io/tags/%E6%8A%80%E6%9C%AF/</link>
+            <pubDate>Wed, 29 Jul 2026 18:55:01 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/%E6%8A%80%E6%9C%AF/</guid>
+            <description></description>
+        </item><item>
+            <title>数学</title>
+            <link>https://lo4u.github.io/tags/%E6%95%B0%E5%AD%A6/</link>
+            <pubDate>Wed, 29 Jul 2026 18:55:01 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/%E6%95%B0%E5%AD%A6/</guid>
+            <description></description>
+        </item><item>
+            <title>算法</title>
+            <link>https://lo4u.github.io/tags/%E7%AE%97%E6%B3%95/</link>
+            <pubDate>Wed, 29 Jul 2026 18:55:01 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/%E7%AE%97%E6%B3%95/</guid>
+            <description></description>
+        </item><item>
+            <title>线性代数</title>
+            <link>https://lo4u.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</link>
+            <pubDate>Wed, 29 Jul 2026 18:55:01 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</guid>
+            <description></description>
+        </item><item>
+            <title>PEL</title>
+            <link>https://lo4u.github.io/tags/pel/</link>
+            <pubDate>Wed, 29 Jul 2026 18:19:15 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/pel/</guid>
+            <description></description>
+        </item><item>
+            <title>大模型</title>
+            <link>https://lo4u.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
+            <pubDate>Wed, 29 Jul 2026 18:19:15 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</guid>
+            <description></description>
+        </item><item>
+            <title>隐私</title>
+            <link>https://lo4u.github.io/tags/%E9%9A%90%E7%A7%81/</link>
+            <pubDate>Wed, 29 Jul 2026 18:19:15 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/%E9%9A%90%E7%A7%81/</guid>
+            <description></description>
+        </item><item>
             <title>PIR</title>
             <link>https://lo4u.github.io/tags/pir/</link>
             <pubDate>Tue, 21 Jul 2026 15:37:34 +0800</pubDate>
@@ -16,18 +64,6 @@
             <link>https://lo4u.github.io/tags/%E7%BC%96%E7%A0%81/</link>
             <pubDate>Tue, 21 Jul 2026 15:37:34 +0800</pubDate>
             <guid>https://lo4u.github.io/tags/%E7%BC%96%E7%A0%81/</guid>
-            <description></description>
-        </item><item>
-            <title>技术</title>
-            <link>https://lo4u.github.io/tags/%E6%8A%80%E6%9C%AF/</link>
-            <pubDate>Tue, 21 Jul 2026 15:37:34 +0800</pubDate>
-            <guid>https://lo4u.github.io/tags/%E6%8A%80%E6%9C%AF/</guid>
-            <description></description>
-        </item><item>
-            <title>隐私</title>
-            <link>https://lo4u.github.io/tags/%E9%9A%90%E7%A7%81/</link>
-            <pubDate>Tue, 21 Jul 2026 15:37:34 +0800</pubDate>
-            <guid>https://lo4u.github.io/tags/%E9%9A%90%E7%A7%81/</guid>
             <description></description>
         </item><item>
             <title>Go</title>
