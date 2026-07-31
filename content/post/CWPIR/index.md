@@ -5,6 +5,8 @@ date: 2026-07-21T15:37:34+08:00
 image: 
 math: true
 license: 
+categories: ["论文阅读"]
+tags: ["技术", "PIR", "隐私", "编码"]
 hidden: false
 comments: true
 draft: false

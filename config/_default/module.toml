@@ -1,0 +1,7 @@
+[hugoVersion]
+    extended = true
+    min      = "0.157.0"
+
+# 主题作为模块导入
+[[imports]]
+  path = "github.com/CaiJimmy/hugo-theme-stack/v4"

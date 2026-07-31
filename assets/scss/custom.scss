@@ -1,1 +1,11 @@
-/* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
+.alert-body {
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.article-content img.gallery-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

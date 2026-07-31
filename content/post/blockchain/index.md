@@ -1,7 +1,8 @@
 ---
-title: one tiny local blockchain
+title: "One Tiny Local Blockchain: A Modular Go Prototype"
 date: 2024-07-08 21:32:32
-
+categories: ["原型实现"]
+tags: ["技术", "区块链", "go"]
 hidden: false
 comments: true
 draft: false

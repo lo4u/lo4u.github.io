@@ -1,18 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on 摘星</title>
         <link>https://lo4u.github.io/categories/</link>
         <description>Recent content in Categories on 摘星</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language><atom:link href="https://lo4u.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Test</title>
-        <link>https://lo4u.github.io/categories/test/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://lo4u.github.io/categories/test/</guid>
-        <description>&lt;img src="https://lo4u.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
-        </item>
-        
-    </channel>
+        <language>zh-cn</language>
+        <lastBuildDate>Tue, 21 Jul 2026 15:37:34 +0800</lastBuildDate><atom:link href="https://lo4u.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>论文阅读</title>
+            <link>https://lo4u.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</link>
+            <pubDate>Tue, 21 Jul 2026 15:37:34 +0800</pubDate>
+            <guid>https://lo4u.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</guid>
+            <description></description>
+        </item><item>
+            <title>原型实现</title>
+            <link>https://lo4u.github.io/categories/%E5%8E%9F%E5%9E%8B%E5%AE%9E%E7%8E%B0/</link>
+            <pubDate>Mon, 08 Jul 2024 21:32:32 +0000</pubDate>
+            <guid>https://lo4u.github.io/categories/%E5%8E%9F%E5%9E%8B%E5%AE%9E%E7%8E%B0/</guid>
+            <description></description>
+        </item><item>
+            <title>Test</title>
+            <link>https://lo4u.github.io/categories/test/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            <guid>https://lo4u.github.io/categories/test/</guid>
+            <description>&lt;img src=&#34;https://lo4u.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg&#34; alt=&#34;Featured image of post Test&#34; /&gt;</description>
+        </item></channel>
 </rss>

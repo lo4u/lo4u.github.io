@@ -1,10 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on 摘星</title>
         <link>https://lo4u.github.io/tags/</link>
         <description>Recent content in Tags on 摘星</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language><atom:link href="https://lo4u.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    </channel>
+        <language>zh-cn</language>
+        <lastBuildDate>Tue, 21 Jul 2026 15:37:34 +0800</lastBuildDate><atom:link href="https://lo4u.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>PIR</title>
+            <link>https://lo4u.github.io/tags/pir/</link>
+            <pubDate>Tue, 21 Jul 2026 15:37:34 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/pir/</guid>
+            <description></description>
+        </item><item>
+            <title>编码</title>
+            <link>https://lo4u.github.io/tags/%E7%BC%96%E7%A0%81/</link>
+            <pubDate>Tue, 21 Jul 2026 15:37:34 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/%E7%BC%96%E7%A0%81/</guid>
+            <description></description>
+        </item><item>
+            <title>技术</title>
+            <link>https://lo4u.github.io/tags/%E6%8A%80%E6%9C%AF/</link>
+            <pubDate>Tue, 21 Jul 2026 15:37:34 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/%E6%8A%80%E6%9C%AF/</guid>
+            <description></description>
+        </item><item>
+            <title>隐私</title>
+            <link>https://lo4u.github.io/tags/%E9%9A%90%E7%A7%81/</link>
+            <pubDate>Tue, 21 Jul 2026 15:37:34 +0800</pubDate>
+            <guid>https://lo4u.github.io/tags/%E9%9A%90%E7%A7%81/</guid>
+            <description></description>
+        </item><item>
+            <title>Go</title>
+            <link>https://lo4u.github.io/tags/go/</link>
+            <pubDate>Mon, 08 Jul 2024 21:32:32 +0000</pubDate>
+            <guid>https://lo4u.github.io/tags/go/</guid>
+            <description></description>
+        </item><item>
+            <title>区块链</title>
+            <link>https://lo4u.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</link>
+            <pubDate>Mon, 08 Jul 2024 21:32:32 +0000</pubDate>
+            <guid>https://lo4u.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</guid>
+            <description></description>
+        </item></channel>
 </rss>

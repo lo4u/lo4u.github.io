@@ -1,0 +1,6 @@
+baseURL = 'https://lo4u.github.io'
+languageCode = 'zh-cn'
+title = '摘星'
+
+defaultContentLanguage = 'zh-cn'
+
